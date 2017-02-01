@@ -1,4 +1,6 @@
 ### A. Given the following data structure:
+puts "------------------------------------"
+puts "Section A"
 
 lines = ['Gyle Centre', 'Edinburgh Park', 'Murrayfield Stadium', 'Haymarket', 'Princes Street']
 
@@ -34,6 +36,9 @@ while index < lines.length()
   end
   index += 1
 end
+
+puts "there will be a method to do this - but its fun to work it out!"
+
 
 # 5. Add 'Airport' to the start of the array
 puts ""
@@ -110,6 +115,9 @@ my_hash[:four] = 4
 puts my_hash
 
 ### C. Given the following data structure:
+puts "------------------------------------"
+puts "Section C"
+
 
 users = {
   "Jonathan" => {
@@ -121,42 +129,86 @@ users = {
       "fido" => :dog,
       "spike" => :dog
     }
-  },
-  "Erik" => {
-    :twitter => "eriksf",
-    :favourite_numbers => [8, 12, 24],
-    :home_town => "Linithgow",
-    :pets => {
-      "nemo" => :fish,
-      "kevin" => :fish,
-      "spike" => :dog,
-      "rupert" => :parrot
-    }
-  },
-  "Avril" => {
-    :twitter => "bridgpally",
-    :favourite_numbers => [12, 14, 85, 88],
-    :home_town => "Dunbar",
-    :pets => {
-      "colin" => :snake
-    }
-  }
-}
+    },
+    "Erik" => {
+      :twitter => "eriksf",
+      :favourite_numbers => [8, 12, 24],
+      :home_town => "Linithgow",
+      :pets => {
+        "nemo" => :fish,
+        "kevin" => :fish,
+        "spike" => :dog,
+        "rupert" => :parrot
+      }
+      },
+      "Avril" => {
+        :twitter => "bridgpally",
+        :favourite_numbers => [12, 14, 85, 88],
+        :home_town => "Dunbar",
+        :pets => {
+          "colin" => :snake
+        }
+        },
+        "Robert" => {
+          :twitter => "equationlab",
+          :favourite_numbers => [14, 28, 34, 42, 56],
+          :home_town => "Edinburgh",
+          :pets => {
+            "long" => :dog
+          }
+        }
+      }
 
 # 1. Return Jonathan's Twitter handle (i.e. the string `"jonnyt"`)
 
+puts ""
+puts "Q1"
+puts users["Jonathan"][:twitter]
+
+
 # 2. Return Erik's hometown
 
+puts ""
+puts "Q2"
+puts users["Erik"][:home_town]
+
 # 3. Return the array of Erik's favorite numbers
+puts ""
+puts "Q3"
+puts users["Erik"][:favourite_numbers]
 
 # 4. Return the type of Avril's pet Colin
+puts ""
+puts "Q4"
+puts users["Avril"][:pets]["colin"]
 
 # 5. Return the smallest of Erik's favorite numbers
+puts ""
+puts "Q5"
+eric_array = users["Erik"][:favourite_numbers]
+puts eric_array.min
 
 # 6. Add the number `7` to Erik's favorite numbers
+puts ""
+puts "Q6"
+users["Erik"][:favourite_numbers].push(7)
+puts users["Erik"][:favourite_numbers]
 
 # 7. Change Erik's hometown to Edinburgh
+puts ""
+puts "Q7"
+users["Erik"][:home_town] = "Edinburgh"
+puts users["Erik"][:home_town ]
+
 
 # 8. Add a pet dog to Erik called "Fluffy"
+puts ""
+puts "Q8"
+users["Erik"][:pets]["Fluffy"] = :dog
+puts users["Erik"][:pets]
+
 
 # 9. Add yourself to the users hash
+puts ""
+puts "Q9"
+puts "Robert's entry to the users hash is : #{users["Robert"]}"
