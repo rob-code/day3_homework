@@ -22,6 +22,7 @@ puts lines.at(4)
 puts lines.slice(4)
 puts lines.slice(4,1)
 puts lines.last()
+puts lines.fetch(4)
 
 
 # 4. Work out the index position of 'Haymarket'
@@ -38,7 +39,8 @@ while index < lines.length()
 end
 
 puts "there will be a method to do this - but its fun to work it out!"
-
+puts lines.include?("Haymarket")
+puts lines.index("Haymarket")
 
 # 5. Add 'Airport' to the start of the array
 puts ""
@@ -50,7 +52,7 @@ puts lines
 puts ""
 puts "Q6"
 lines.push("York Place")
-puts lines
+puts lines << "York Place"  # shovel operator
 
 # 7. Remove 'Edinburgh Park' from the array using it's name
 puts ""
@@ -62,7 +64,8 @@ puts lines
 puts ""
 puts "Q8"
 lines.insert(2,"Edinburgh Park")  #putting Edinburgh Park back in
-lines.slice!(2)
+lines.slice!(2) # or ...
+
 puts lines
 
 # 9. Reverse the positions of the stops in the array
@@ -106,6 +109,11 @@ puts ""
 puts "Q4"
 my_hash[3] = "Three"
 puts my_hash
+
+#also:
+#my_hash.merge!({3 => "Three"})
+#my_hash.store(3, "Three")
+
 
 # 5. How would you add `{:four => 4}` to the hash?
 
@@ -151,7 +159,7 @@ users = {
         },
         "Robert" => {
           :twitter => "equationlab",
-          :favourite_numbers => [14, 28, 34, 42, 56],
+          :favourite_numbers => [14, 28, 38, 44, 56],
           :home_town => "Edinburgh",
           :pets => {
             "long" => :dog
@@ -181,17 +189,19 @@ puts users["Erik"][:favourite_numbers]
 puts ""
 puts "Q4"
 puts users["Avril"][:pets]["colin"]
+puts users["Avril"][:pets].values #there's only one snake so it gives a unique value
+
 
 # 5. Return the smallest of Erik's favorite numbers
 puts ""
 puts "Q5"
-eric_array = users["Erik"][:favourite_numbers]
-puts eric_array.min
+puts users["Erik"][:favourite_numbers].min
+#puts eric_array.min
 
 # 6. Add the number `7` to Erik's favorite numbers
 puts ""
 puts "Q6"
-users["Erik"][:favourite_numbers].push(7)
+users["Erik"][:favourite_numbers].push(7)   #.unshift(7)  .insert(1,7)
 puts users["Erik"][:favourite_numbers]
 
 # 7. Change Erik's hometown to Edinburgh
@@ -204,11 +214,24 @@ puts users["Erik"][:home_town ]
 # 8. Add a pet dog to Erik called "Fluffy"
 puts ""
 puts "Q8"
-users["Erik"][:pets]["Fluffy"] = :dog
+users["Erik"][:pets]["Fluffy"] = :dog   # or users["Erik"][:pets].merge!({ "Fluffy" => :dog }) ... this is good if we have a lot of data into merge
 puts users["Erik"][:pets]
 
 
 # 9. Add yourself to the users hash
 puts ""
 puts "Q9"
-puts "Robert's entry to the users hash is : #{users["Robert"]}"
+users["Robert1"] = {
+           :twitter => "equationlab",
+           :favourite_numbers => [14, 28, 38, 44, 56],
+           :home_town => "Edinburgh",
+           :pets => {
+             "long" => :dog
+           }
+         }
+
+
+
+
+puts "Robert's entry to the users hash is : #{users}"
+
